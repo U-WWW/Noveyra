@@ -6,7 +6,7 @@ import './AdminDashboard.css'
 
 export default function AdminDashboard() {
     const [projects, setProjects] = useState([])
-    const [settings, setSettings] = useState({ email: '', phone: '', address: '' })
+    const [settings, setSettings] = useState({ email: '', phone: '', address: '', social_links: { facebook: '', instagram: '', twitter: '' } })
     const [newProject, setNewProject] = useState({ title: '', link: '', description: '' })
     const [editingProject, setEditingProject] = useState(null)
     const [imageFile, setImageFile] = useState(null)
@@ -181,6 +181,24 @@ export default function AdminDashboard() {
                             value={settings.address || ''}
                             onChange={e => setSettings({ ...settings, address: e.target.value })}
                         />
+
+                        <h3 style={{ marginTop: '1rem', marginBottom: '0.5rem' }}>Social Media Links</h3>
+                        <input
+                            placeholder="Facebook URL"
+                            value={settings.social_links?.facebook || ''}
+                            onChange={e => setSettings({ ...settings, social_links: { ...settings.social_links, facebook: e.target.value } })}
+                        />
+                        <input
+                            placeholder="Instagram URL"
+                            value={settings.social_links?.instagram || ''}
+                            onChange={e => setSettings({ ...settings, social_links: { ...settings.social_links, instagram: e.target.value } })}
+                        />
+                        <input
+                            placeholder="Twitter/X URL"
+                            value={settings.social_links?.twitter || ''}
+                            onChange={e => setSettings({ ...settings, social_links: { ...settings.social_links, twitter: e.target.value } })}
+                        />
+
                         <button type="submit" className="btn btn-outline top-spacing" disabled={loading}>
                             Save Settings
                         </button>
