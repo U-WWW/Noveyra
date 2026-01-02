@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Envelope, MapPin, Phone } from 'phosphor-react'
+import { Envelope, MapPin, Phone, FacebookLogo, InstagramLogo, TwitterLogo } from 'phosphor-react'
 import { supabase } from '../lib/supabase'
 import { useLanguage } from '../context/LanguageContext'
 
@@ -48,6 +48,26 @@ export default function Contact() {
                     </div>
                 </div>
             </div>
+
+            {settings?.social_links && (
+                <div className="flex justify-center gap-lg" style={{ marginTop: '3rem' }}>
+                    {settings.social_links.facebook && (
+                        <a href={settings.social_links.facebook} target="_blank" rel="noopener noreferrer" className="text-primary hover-scale">
+                            <FacebookLogo size={48} />
+                        </a>
+                    )}
+                    {settings.social_links.instagram && (
+                        <a href={settings.social_links.instagram} target="_blank" rel="noopener noreferrer" className="text-primary hover-scale">
+                            <InstagramLogo size={48} />
+                        </a>
+                    )}
+                    {settings.social_links.twitter && (
+                        <a href={settings.social_links.twitter} target="_blank" rel="noopener noreferrer" className="text-primary hover-scale">
+                            <TwitterLogo size={48} />
+                        </a>
+                    )}
+                </div>
+            )}
         </div>
     )
 }
