@@ -1,0 +1,50 @@
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.card {
+    background: var(--color-bg-secondary);
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+}
+
+.card h2 {
+    margin-bottom: var(--spacing-md);
+    color: var(--color-primary);
+}
+
+.card input,
+.card textarea {
+    width: 100%;
+    padding: 0.8rem;
+    background: #000;
+    border: 1px solid var(--color-border);
+    color: white;
+    border-radius: var(--radius-sm);
+    font-family: inherit;
+}
+
+.card input:focus,
+.card textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+}
+
+.top-spacing {
+    margin-top: var(--spacing-md);
+}
+
+.btn-delete {
+    background: red;
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
