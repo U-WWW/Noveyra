@@ -107,9 +107,23 @@ export default function AdminDashboard() {
     async function updateSettings(e) {
         e.preventDefault()
         setLoading(true)
-        const { error } = await supabase.from('site_settings').upsert({ id: 1, ...settings })
-        if (error) alert('Error updating settings')
-        else alert('Settings updated!')
+
+        const updates = {
+            id: 1,
+            email: settings.email,
+            phone: settings.phone,
+            address: settings.address,
+            social_links: settings.social_links
+        }
+
+        const { error } = await supabase.from('site_settings').upsert(updates)
+
+        if (error) {
+            console.error('Error updating settings:', error)
+            alert('Error updating settings: ' + error.message)
+        } else {
+            alert('Settings updated!')
+        }
         setLoading(false)
     }
 
